@@ -29,7 +29,7 @@ state.time = 0.0;
 
 # cycle through all images
 for (i = 0; i < 60; i++)
-  flyingman_image[i] = Image("progress-" + i + ".png");
+  flyingman_image[i] = Image("boot/progress-" + i + ".png");
 flyingman_sprite = Sprite();
 
 # set image position
