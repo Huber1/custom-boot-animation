@@ -1,0 +1,9 @@
+[Plymouth Theme]
+Name=custom_animate
+Description=display connecting dots animation
+Comment=created By Aditya Shakya (@adi1090x)
+ModuleName=script
+
+[script]
+ImageDir=/usr/share/plymouth/themes/custom_animate
+ScriptFile=/usr/share/plymouth/themes/custom_animate/custom_animate.script
