@@ -1,22 +1,0 @@
-Adobe After Effects v17.0.6 Windows 64 render log for project “animated_M.aep”
-
-Rendering started on 24/06/2024 at 17:51:56
-
-  24/06/2024 17:51:56: Starting composition “Shutdown”.
-
-  Output To: C:\Users\Moritz\Desktop\custom-boot-animation\custom_animate\shutdown\shutdown-[##].png    24/06/2024 17:51:57: Finished composition “Shutdown”.
-
-
-  24/06/2024 17:51:57: Starting composition “Password In”.
-
-  Output To: C:\Users\Moritz\Desktop\custom-boot-animation\custom_animate\password_in\passwordin-[##].png    24/06/2024 17:51:57: Finished composition “Password In”.
-
-
-  24/06/2024 17:51:57: Starting composition “Password Out”.
-
-  Output To: C:\Users\Moritz\Desktop\custom-boot-animation\custom_animate\password_out\passwordout-[##].png    24/06/2024 17:51:57: Finished composition “Password Out”.
-
-
-  Total Time Elapsed: 1 Seconds
-Log closed on 24/06/2024 at 17:51:57
-
