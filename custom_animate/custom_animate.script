@@ -27,14 +27,12 @@ fun refresh_callback ()
   password_sprite.SetImage(password_image[Math.Int(password_progress / 2) % 25]);
   if(password_progress < 48)
     password_progress++;
-
-
 }
 
 Plymouth.SetRefreshFunction (refresh_callback);
 
 
-// ----------------------------------------- Dialogue ----------------------------------
+// ----------------------------------------- Dialog ------------------------------------
 
 password_init = 0;
 
@@ -45,12 +43,33 @@ fun build_password_in(prompt, bullets) {
       global.password_image[i] = Image("password/in-" + i + ".png");
 
     global.password_sprite = Sprite();
-    global.password_sprite.SetX(Window.GetX() + (Window.GetWidth(0) / 2 - global.password_image[0].GetWidth() / 2));
-    global.password_sprite.SetY(Window.GetY() + (Window.GetHeight(0) * (3/4) - global.password_image[0].GetHeight() / 2));
-
+    password_x = Window.GetX() + (Window.GetWidth(0) / 2 - global.password_image[0].GetWidth() / 2);
+    password_y = Window.GetY() + (Window.GetHeight(0) * (3/4) - global.password_image[0].GetHeight() / 2);
+    global.password_sprite.SetX(password_x);
+    global.password_sprite.SetY(password_y);
+    
+    global.bullet_image = Image("password/bullet.png");
+    global.bullet_x = password_x + 100;
+    global.bullet_y = password_y + 22;
+    
     global.password_stage = "IN";
     global.password_progress = 0;
     global.password_init = 1;
+  }
+  
+  for (index = 0; global.bullet[index] || index < bullets; index++)
+  {
+    if (!global.bullet[index])
+    {
+      global.bullet[index] = Sprite(bullet_image);
+      global.bullet[index].SetX(global.bullet_x + (index * (bullet_image.GetWidth() + 10)));
+      global.bullet[index].SetY(global.bullet_y);
+      global.bullet[index].SetZ(100000);
+    } 
+    if (index < bullets)
+      global.bullet[index].SetOpacity(1);
+    else
+      global.bullet[index].SetOpacity(0);
   }
 }
 
@@ -61,6 +80,10 @@ fun build_password_out() {
   global.password_stage = "OUT";
   global.password_progress = 0;
   global.password_init = 0;
+  
+  // remove dots
+  for (index = 0; global.bullet[index]; index++)
+    global.bullet[index] = 0;
 }
 
 Plymouth.SetDisplayNormalFunction(build_password_out);
