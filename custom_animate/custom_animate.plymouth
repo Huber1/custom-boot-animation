@@ -1,7 +1,6 @@
 [Plymouth Theme]
 Name=custom_animate
-Description=display connecting dots animation
-Comment=created By Aditya Shakya (@adi1090x)
+Description=Animated logo and password input
 ModuleName=script
 
 [script]
