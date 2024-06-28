@@ -1,15 +1,23 @@
 //--------------------------------- Refresh (Logo animation) --------------------------
 
-// Logo
-for (i = 0; i < 60; i++)
-  build_image[i] = Image("boot/progress-" + i + ".png");
+// Boot
+if(Plymouth.GetMode () == "boot" || Plymouth.GetMode () == "resume") {
+  for (i = 0; i < 60; i++)
+    build_image[i] = Image("boot/progress-" + i + ".png");
 
-build_sprite = Sprite();
+  build_sprite = Sprite();
 
-build_sprite.SetX(Window.GetX() + (Window.GetWidth(0) / 2 - build_image[0].GetWidth() / 2));
-build_sprite.SetY(Window.GetY() + (Window.GetHeight(0) / 3 - build_image[0].GetHeight() / 2));
+  build_sprite.SetX(Window.GetX() + (Window.GetWidth(0) / 2 - build_image[0].GetWidth() / 2));
+  build_sprite.SetY(Window.GetY() + (Window.GetHeight(0) / 3 - build_image[0].GetHeight() / 2));
+} else {
+// Shutdown
+  for(i = 0; i < 37; i++)
+    shutdown_image[i] = Image("shutdown/shutdown-" + i + ".png");
+  shutdown_sprite = Sprite();
+  shutdown_sprite.SetX(Window.GetX() + (Window.GetWidth(0) / 2 - shutdown_image[0].GetWidth() / 2));
+  shutdown_sprite.SetY(Window.GetY() + (Window.GetHeight(0) / 3 - shutdown_image[0].GetHeight() / 2));
+}
 progress = 0;
-
 
 // Password
 password_stage = "OUT";
@@ -17,11 +25,16 @@ password_progress = 48;
 
 fun refresh_callback ()
 {
-  // Image
-  build_sprite.SetImage(build_image[Math.Int(progress / 2) % 60]);
-  if(progress < 118)
-    progress++;
-
+  // Boot
+  if(Plymouth.GetMode () == "boot" || Plymouth.GetMode () == "resume") {
+    build_sprite.SetImage(build_image[Math.Int(progress / 2) % 60]);
+    if(progress < 118)
+      progress++;
+  } else {
+    shutdown_sprite.SetImage(shutdown_image[Math.Int(progress / 2) % 37]);
+    if(progress < 72)
+      progress++;
+  }
 
   // Password
   password_sprite.SetImage(password_image[Math.Int(password_progress / 2) % 25]);
