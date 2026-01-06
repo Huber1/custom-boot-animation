@@ -1,13 +1,16 @@
-Small custom boot animation theme script for plymouth
+# Custom Boot Animation
 
-Needs the plymouth script plugin
+USE AT YOUR OWN RISK!
 
-Supports password input (dialog) and messages (like on updates)
+This is a custom Boot animation using Plymouth and the two-step module
+
+Many assets and settings from the official [Plymouth Repo](https://gitlab.freedesktop.org/plymouth/plymouth) were used
 
 Setup:
 ```bash
-sudo cp -r custom_animate /usr/share/plymouth/themes/
-sudo plymouth-set-default-theme custom_animate -R
+cd /usr/share/plymouth/themes
+sudo git clone https://git.huber.cloud/moritz/custom-boot-animation moritz
+sudo plymouth-set-default-theme moritz -R
 ```
 
 
