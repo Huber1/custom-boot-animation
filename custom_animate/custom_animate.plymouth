@@ -1,8 +1,0 @@
-[Plymouth Theme]
-Name=custom_animate
-Description=Animated logo and password input
-ModuleName=script
-
-[script]
-ImageDir=/usr/share/plymouth/themes/custom_animate
-ScriptFile=/usr/share/plymouth/themes/custom_animate/custom_animate.script

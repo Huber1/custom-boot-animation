@@ -1,0 +1,8 @@
+[Plymouth Theme]
+Name=moritz
+Description=Animated logo and password input
+ModuleName=script
+
+[script]
+ImageDir=@IMAGES@
+ScriptFile=@SCRIPT@
